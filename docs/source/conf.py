@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../../'))
 # -- Project information -----------------------------------------------------
 
 project = 'V-Host-Factor-DB'
-copyright = '2022, Nathaniel del Rosario, Duo Peng'
+copyright = '2022, Nathaniel del Rosario, Duo Peng, Elianna Kondylis, Jacklyn Luu'
 author = 'Nathaniel del Rosario, Duo Peng, Elianna Kondylis, Jacklyn Luu'
 
 # The full version, including alpha/beta/rc tags
