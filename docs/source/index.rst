@@ -14,6 +14,8 @@ V-Host-Factor-DB is CRISPR Screen Comparison Tool Devloped at Chan Zuckerburg Bi
    single_analysis
    compare_analysis
    user_search_screens_by_gene
+   Dependencies
+   Acknowledgements
 
 
 

@@ -113,4 +113,3 @@ To view the compare screens page, click on compare-app/, then
     - select the Virus Dataset for the Y axis
     - select the Analysis Metric
     - input any gene names into the "Search For Genes" search bar
------
