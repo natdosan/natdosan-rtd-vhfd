@@ -66,6 +66,9 @@ dict_gene_search()
 
 Usage
 =====
+The script can be simply run by the command:
+    $ python user_search_screens_by_gene.py
+-----
 
 Dependencies
 ============
