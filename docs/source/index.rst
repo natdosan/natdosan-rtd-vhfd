@@ -1,22 +1,19 @@
-Welcome to Lumache's documentation!
-===================================
+.. V-Host-Factor-DB documentation master file, created by
+   sphinx-quickstart on Thu Dec 22 16:28:41 2022.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
-
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
-
-.. note::
-
-   This project is under active development.
-
-Contents
---------
+Welcome to V-Host-Factor-DB's documentation!
+============================================
+V-Host-Factor-DB is CRISPR Screen Comparison Tool Devloped at Chan Zuckerburg Biohub to provide insites into Host-Virus interactions
 
 .. toctree::
+   :maxdepth: 3
+   :caption: Contents:
 
-   usage
-   api
+   single_analysis
+   compare_analysis
+   user_search_screens_by_gene
+
+
+
