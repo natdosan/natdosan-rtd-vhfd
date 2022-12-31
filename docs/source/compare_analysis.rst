@@ -107,9 +107,10 @@ The app can be simply run by the command:
     $ python app.py
 
     the default port should be http://localhost:8080/
------
+
 To view the compare screens page, click on compare-app/, then
     - select the Virus Dataset for the X axis
     - select the Virus Dataset for the Y axis
     - select the Analysis Metric
     - input any gene names into the "Search For Genes" search bar
+-----

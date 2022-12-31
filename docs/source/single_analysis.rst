@@ -368,9 +368,10 @@ The app can be simply run by the command:
     $ python app.py
 
     the default port should be http://localhost:8080/
------
+
 To view the single screens page, click on single-complete-app/, then
 
     - select the Virus Dataset
     - select the Analysis Metric
     - input any gene names into the "Search For Genes" search bar
+-----
