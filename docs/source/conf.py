@@ -14,10 +14,6 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../../'))
 
-from single_analysis import *
-from compare_analysis import *
-from user_search_screens_by_gene import *
-
 # -- Project information -----------------------------------------------------
 
 project = 'V-Host-Factor-DB'
