@@ -18,10 +18,10 @@ sys.path.insert(0, os.path.abspath('../../'))
 
 project = 'V-Host-Factor-DB'
 copyright = '2022, Nathaniel del Rosario, Duo Peng'
-author = 'Nathaniel del Rosario, Duo Peng'
+author = 'Nathaniel del Rosario, Duo Peng, Elianna Kondylis, Jacklyn Luu'
 
 # The full version, including alpha/beta/rc tags
-release = '12-22-22'
+release = '1.0'
 
 
 # -- General configuration ---------------------------------------------------
