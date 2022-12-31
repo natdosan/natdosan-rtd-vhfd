@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Dual Screen Analysis Plots (compare_analysis) &#8212; V-Host-Factor-DB 12-22-22 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Gene Search Functions (user_search_screens_by_gene)" href="user_search_screens_by_gene.html" />
+    <link rel="prev" title="Single Screen Analysis Plots (single_analysis)" href="single_analysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="user_search_screens_by_gene.html" title="Gene Search Functions (user_search_screens_by_gene)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="single_analysis.html" title="Single Screen Analysis Plots (single_analysis)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">V-Host-Factor-DB 12-22-22 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Dual Screen Analysis Plots (compare_analysis)</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="dual-screen-analysis-plots-compare-analysis">
+<h1>Dual Screen Analysis Plots (compare_analysis)<a class="headerlink" href="#dual-screen-analysis-plots-compare-analysis" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h1>
+<section id="file">
+<h2>file()<a class="headerlink" href="#file" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>file() returns the path to the gene_summary.txt file for a specific virus
+input the virus acronym and the path to where all the data is held.
+When running locally, need to provide data path to dash app if not using data/mageck_nextflow_out/</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>virus<span class="classifier">str</span></dt><dd><p>the virus selected by the user</p>
+</dd>
+<dt>datapath<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>filepath<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="get-grna">
+<h2>get_gRNA()<a class="headerlink" href="#get-grna" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>get_gRNA() returns the path to the .srgrna_summary.txt file for a specific virus
+input the virus acronym and the path to where all the data is held.
+When running locally, need to provide data path to dash app if not using data/mageck_nextflow_out/</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>virus<span class="classifier">str</span></dt><dd><p>the virus selected by the user</p>
+</dd>
+<dt>datapath<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>filepath<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="data-clean">
+<h2>data_clean()<a class="headerlink" href="#data-clean" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>data_clean() cleans the data inside the dataTable columns and returns the merged df</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>x_param<span class="classifier">str</span></dt><dd><p>virus 1 parameter (user selected)</p>
+</dd>
+<dt>y_param<span class="classifier">str</span></dt><dd><p>virus 2 parameter (user selected)</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>df_merge<span class="classifier">dataFrame</span></dt><dd><p>merged and cleaned dataFrame of all the parameters</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="compare-plot">
+<h2>compare_plot()<a class="headerlink" href="#compare-plot" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>compare_plot is a method to create a screen comparison scatter plot</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>datapath<span class="classifier">str</span></dt><dd><p>filepath to the user selected virus</p>
+</dd>
+<dt>input_genes<span class="classifier">list</span></dt><dd><p>list of all user selected genes</p>
+</dd>
+<dt>parameter<span class="classifier">str</span></dt><dd><p>user selected parameter to compare across screens</p>
+</dd>
+<dt>virus1<span class="classifier">str</span></dt><dd><p>1st selected virus</p>
+</dd>
+<dt>virus 2<span class="classifier">str</span></dt><dd><p>2nd selected virus</p>
+</dd>
+<dt>scale<span class="classifier">list</span></dt><dd><p>list of all colorscales for the gradient plot</p>
+</dd>
+<dt>background_color<span class="classifier">str</span></dt><dd><p>string from a list of strings; each string is the name of a plotly background color</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>fig<span class="classifier">plotly.express.scatter</span></dt><dd><p>scatter plot between two metrics</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</section>
+<section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h1>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Dual Screen Analysis Plots (compare_analysis)</a></li>
+<li><a class="reference internal" href="#functions">Functions</a><ul>
+<li><a class="reference internal" href="#file">file()</a></li>
+<li><a class="reference internal" href="#get-grna">get_gRNA()</a></li>
+<li><a class="reference internal" href="#data-clean">data_clean()</a></li>
+<li><a class="reference internal" href="#compare-plot">compare_plot()</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="single_analysis.html"
+                          title="previous chapter">Single Screen Analysis Plots (single_analysis)</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="user_search_screens_by_gene.html"
+                          title="next chapter">Gene Search Functions (user_search_screens_by_gene)</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/compare_analysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="user_search_screens_by_gene.html" title="Gene Search Functions (user_search_screens_by_gene)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="single_analysis.html" title="Single Screen Analysis Plots (single_analysis)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">V-Host-Factor-DB 12-22-22 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Dual Screen Analysis Plots (compare_analysis)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Nathaniel del Rosario, Duo Peng.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    </div>
+  </body>
+</html>

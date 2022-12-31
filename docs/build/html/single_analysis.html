@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Single Screen Analysis Plots (single_analysis) &#8212; V-Host-Factor-DB 12-22-22 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dual Screen Analysis Plots (compare_analysis)" href="compare_analysis.html" />
+    <link rel="prev" title="Welcome to V-Host-Factor-DB’s documentation!" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="compare_analysis.html" title="Dual Screen Analysis Plots (compare_analysis)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to V-Host-Factor-DB’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">V-Host-Factor-DB 12-22-22 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Single Screen Analysis Plots (single_analysis)</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="single-screen-analysis-plots-single-analysis">
+<h1>Single Screen Analysis Plots (single_analysis)<a class="headerlink" href="#single-screen-analysis-plots-single-analysis" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h1>
+<section id="file">
+<h2>file()<a class="headerlink" href="#file" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>file() returns the path to the gene_summary.txt file for a specific virus
+input the virus acronym and the path to where all the data is held.
+When running locally, need to provide data path to dash app if not using data/mageck_nextflow_out</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>virus<span class="classifier">str</span></dt><dd><p>the virus selected by the user</p>
+</dd>
+<dt>datapath<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>filepath<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="get-grna">
+<h2>get_gRNA()<a class="headerlink" href="#get-grna" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>get_gRNA() returns the path to the .srgrna_summary.txt file for a specific virus
+input the virus acronym and the path to where all the data is held.
+When running locally, need to provide data path to dash app if not using data/mageck_nextflow_out/</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>virus<span class="classifier">str</span></dt><dd><p>the virus selected by the user</p>
+</dd>
+<dt>datapath<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>filepath<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="top-hits">
+<h2>top_hits()<a class="headerlink" href="#top-hits" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>top_hits() is a method used to return the top n inputted hits in the screen</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>filepath<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+<dt>num<span class="classifier">int</span></dt><dd><p>the number of significant genes, as selected by the user</p>
+</dd>
+<dt>metric<span class="classifier">str</span></dt><dd><p>metric of significance (positive score, rank, etc.), as selected by the user</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>df<span class="classifier">dataFrame</span></dt><dd><p>has all the genes except for the significant ones</p>
+</dd>
+<dt>df_max<span class="classifier">dataFrame</span></dt><dd><p>has all the significant genes</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="sig-alpha">
+<h2>sig_alpha()<a class="headerlink" href="#sig-alpha" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>sig_alpha() is a method used to sort dataframes based on significance
+and assign color values to each gene for when the screen is plotted</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>gen_df and df_max<span class="classifier">dataFrame</span></dt><dd><p>two dfs returned from top_hits()</p>
+</dd>
+<dt>gene inputs<span class="classifier">list</span></dt><dd><p>list of genes the user wants to highlight in the graph (from callback)</p>
+</dd>
+<dt>Genes_Alpha<span class="classifier">list</span></dt><dd><p>gives the x-coordinate of each point, genes are ordered alphabetically on the x-axis</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>grey_df<span class="classifier">dataFrame</span></dt><dd><p>df of all non-significant genes (without top n hit genes)</p>
+</dd>
+<dt>red_df<span class="classifier">dataFrame</span></dt><dd><p>df of only significant genes</p>
+</dd>
+<dt>final_df<span class="classifier">dataFrame</span></dt><dd><p>df of both significant and non significant genes</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="sig-scatter-plot">
+<h2>sig_scatter_plot()<a class="headerlink" href="#sig-scatter-plot" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>Produce a plot of significance vs. alphabetical order</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>data_path<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+<dt>num<span class="classifier">int</span></dt><dd><p>number of user inputted top hits</p>
+</dd>
+<dt>metric<span class="classifier">str</span></dt><dd><p>string corresponding to the metric chosen for analysis</p>
+</dd>
+<dt>gene_inputs<span class="classifier">list</span></dt><dd><p>list of selected genes to be highlighted</p>
+</dd>
+<dt>virus<span class="classifier">str</span></dt><dd><p>string corresponding to the virus in the virus dictionary in the main single_complete-app file</p>
+</dd>
+<dt>backgroundColor<span class="classifier">str</span></dt><dd><p>string referencing which Plotly background color to be selected</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>fig<span class="classifier">Plotly graph</span></dt><dd><p>scatter plot of a numerical vs categorical variable</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="sig-negative-log-rank-plot">
+<h2>sig_negative_log_rank_plot()<a class="headerlink" href="#sig-negative-log-rank-plot" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>Plot of one metric against another, initially will show singificance vs. rank</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>metric_x<span class="classifier">str</span></dt><dd><p>the metric that will be plotted on the x-axis</p>
+</dd>
+<dt>metric_y<span class="classifier">str</span></dt><dd><p>the metric that will be plotted on the y-axis</p>
+</dd>
+<dt>data_path<span class="classifier">str</span></dt><dd><p>the file path to the gene_summary file for a specific virus</p>
+</dd>
+<dt>num<span class="classifier">int</span></dt><dd><p>number of user inputted top hits</p>
+</dd>
+<dt>metric<span class="classifier">str</span></dt><dd><p>string corresponding to the metric chosen for analysis</p>
+</dd>
+<dt>gene_inputs<span class="classifier">list</span></dt><dd><p>list of selected genes to be highlighted</p>
+</dd>
+<dt>virus<span class="classifier">str</span></dt><dd><p>string corresponding to the virus in the virus dictionary in the main single_complete-app file</p>
+</dd>
+<dt>backgroundColor<span class="classifier">str</span></dt><dd><p>string referencing which Plotly background color to be selected</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>fig<span class="classifier">plotly.express.scatter</span></dt><dd><p>scatter plot of a numerical vs numericals variable</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="filter-df">
+<h2>filter_df()<a class="headerlink" href="#filter-df" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>filter_df finds the limits of the effect size and
+uses that to calculate and return a dataframe with
+cols listed in the last lines of the functions</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>effect_size<span class="classifier">list</span></dt><dd><p>list containing a min/max for a specified range; can be altered</p>
+</dd>
+<dt>pv<span class="classifier">float</span></dt><dd><p>the p-value cutoff</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>df<span class="classifier">dataFrame</span></dt><dd><p>dataFrame for a selected virus from the master dropdown</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="get-sig-df">
+<h2>get_sig_df()<a class="headerlink" href="#get-sig-df" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>Create table of significant and enriched genes</p>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>df<span class="classifier">dataFrame</span></dt><dd><p>original df where the Color attribute ends in a specific string</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="positive-volcano-plot">
+<h2>positive_volcano_plot()<a class="headerlink" href="#positive-volcano-plot" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>Creates a Positive Volcano Plot</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>df<span class="classifier">dataFrame</span></dt><dd><p>initial df to be used for plotting</p>
+</dd>
+<dt>backgroundColor<span class="classifier">str</span></dt><dd><p>string referencing which Plotly background color to be selected</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>fig<span class="classifier">plotly.express.scatter</span></dt><dd><p>Positive volcano plot</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="negative-volcano-plot">
+<h2>negative_volcano_plot()<a class="headerlink" href="#negative-volcano-plot" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>Creates a Negative Volcano Plot</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>df<span class="classifier">dataFrame</span></dt><dd><p>initial df to be used for plotting</p>
+</dd>
+<dt>lfc_range: list</dt><dd><p>list containing a min/max for a specified range; can be altered</p>
+</dd>
+<dt>p_value<span class="classifier">float</span></dt><dd><p>p_value specified</p>
+</dd>
+<dt>backgroundColor<span class="classifier">str</span></dt><dd><p>string referencing which Plotly background color to be selected</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>fig<span class="classifier">plotly.express.scatter</span></dt><dd><p>Negative volcano plot</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="pie-plot">
+<h2>pie_plot()<a class="headerlink" href="#pie-plot" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>creates a pie chart (plotly)</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>df<span class="classifier">dataFrame</span></dt><dd><p>dataFrame of top n hit genes</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>fig<span class="classifier">Plotly figure</span></dt><dd><p>pie chart</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="sunburst-plot">
+<h2>sunburst_plot()<a class="headerlink" href="#sunburst-plot" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>creates a sunburst (plotly) figure</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>df<span class="classifier">dataFrame</span></dt><dd><p>dataFrame of top n hit genes</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>fig<span class="classifier">plotly.express.sunburst</span></dt><dd><p>sunburst chart</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="swarmplot">
+<h2>swarmplot()<a class="headerlink" href="#swarmplot" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>Strip Plot showing gRNA counts and ranks for the top n significant genes</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>df_top_n_hits<span class="classifier">dataFrame</span></dt><dd><p>dataFrame containing n rows corresponding with the top n significant user selected genes</p>
+</dd>
+<dt>df_gRNA<span class="classifier">dataFrame</span></dt><dd><p>dataFrame containing the sgrna names for all the genes</p>
+</dd>
+<dt>background_color<span class="classifier">str</span></dt><dd><p>name of the background color</p>
+</dd>
+<dt>gRNA_subsets<span class="classifier">list</span></dt><dd><p>list of top n gRNA dfs</p>
+</dd>
+<dt>df_gRNA_subset<span class="classifier">dataFrame</span></dt><dd><p>subset df for each Gene and its corresponding sgrna(s)</p>
+</dd>
+<dt>merged_df<span class="classifier">dataFrame</span></dt><dd><p>concatonated df of all gRNA dfs</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>fig<span class="classifier">plotly.express.strip</span></dt><dd><p>strip plot showing gRNA counts and ranks</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="box-plot">
+<h2>box_plot()<a class="headerlink" href="#box-plot" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>Box Plot showing gRNA counts and ranks for the top n significant genes</p>
+<p><strong>Attributes</strong></p>
+<dl class="simple">
+<dt>df_top_n_hits<span class="classifier">dataFrame</span></dt><dd><p>dataFrame containing n rows corresponding with the top n significant user selected genes</p>
+</dd>
+<dt>df_gRNA<span class="classifier">dataFrame</span></dt><dd><p>dataFrame containing the sgrna names for all the genes</p>
+</dd>
+<dt>background_color<span class="classifier">str</span></dt><dd><p>name of the background color</p>
+</dd>
+<dt>gRNA_subsets<span class="classifier">list</span></dt><dd><p>list of top n gRNA dfs</p>
+</dd>
+<dt>merged_df<span class="classifier">dataFrame</span></dt><dd><p>concatonated df of all gRNA dfs</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>fig<span class="classifier">plotly.express.box</span></dt><dd><p>Box plot showing gRNA counts, quartiles, and ranks</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="scatter-3d">
+<h2>scatter_3d()<a class="headerlink" href="#scatter-3d" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>scatter_3d() plots 3 metrics for a simple visualization
+This plot is used to generate images included in figures/
+It is not essential to running the app</p>
+<p><strong>Attributes:</strong></p>
+<dl class="simple">
+<dt>df: dataFrame</dt><dd><p>df for the user inputted virus</p>
+</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="simple">
+<dt>fig<span class="classifier">plotly.express.scatter</span></dt><dd><p>plot showing 3 different metrics plotted</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</section>
+<section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h1>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Single Screen Analysis Plots (single_analysis)</a></li>
+<li><a class="reference internal" href="#functions">Functions</a><ul>
+<li><a class="reference internal" href="#file">file()</a></li>
+<li><a class="reference internal" href="#get-grna">get_gRNA()</a></li>
+<li><a class="reference internal" href="#top-hits">top_hits()</a></li>
+<li><a class="reference internal" href="#sig-alpha">sig_alpha()</a></li>
+<li><a class="reference internal" href="#sig-scatter-plot">sig_scatter_plot()</a></li>
+<li><a class="reference internal" href="#sig-negative-log-rank-plot">sig_negative_log_rank_plot()</a></li>
+<li><a class="reference internal" href="#filter-df">filter_df()</a></li>
+<li><a class="reference internal" href="#get-sig-df">get_sig_df()</a></li>
+<li><a class="reference internal" href="#positive-volcano-plot">positive_volcano_plot()</a></li>
+<li><a class="reference internal" href="#negative-volcano-plot">negative_volcano_plot()</a></li>
+<li><a class="reference internal" href="#pie-plot">pie_plot()</a></li>
+<li><a class="reference internal" href="#sunburst-plot">sunburst_plot()</a></li>
+<li><a class="reference internal" href="#swarmplot">swarmplot()</a></li>
+<li><a class="reference internal" href="#box-plot">box_plot()</a></li>
+<li><a class="reference internal" href="#scatter-3d">scatter_3d()</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to V-Host-Factor-DB’s documentation!</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="compare_analysis.html"
+                          title="next chapter">Dual Screen Analysis Plots (compare_analysis)</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/single_analysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="compare_analysis.html" title="Dual Screen Analysis Plots (compare_analysis)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to V-Host-Factor-DB’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">V-Host-Factor-DB 12-22-22 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Single Screen Analysis Plots (single_analysis)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Nathaniel del Rosario, Duo Peng.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    </div>
+  </body>
+</html>
